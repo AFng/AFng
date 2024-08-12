@@ -9,11 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 # 检查出代码
+      - uses: actions/checkout@v4 # 更新到 v4 版本，使用最新的 checkout Action
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # 设置 Node.js 版本
+          node-version: 20 # 设置 Node.js 版本为 20
       - name: Install dependencies
         run: npm install # 安装依赖项
       - name: Build
