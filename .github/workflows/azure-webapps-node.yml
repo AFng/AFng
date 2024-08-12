@@ -14,8 +14,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20 # 设置 Node.js 版本为 20
-      - name: Print working directory
-        run: echo "Current working directory: $(pwd)" # 打印当前工作目录
       - name: Install dependencies
         run: npm install # 安装依赖项
       - name: Build
