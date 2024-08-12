@@ -1,0 +1,30 @@
+name: Publish npm package
+
+on:
+  push:
+    branches:
+      - main # 在主分支推送代码时触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 # 检查出代码
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16 # 设置 Node.js 版本
+      - name: Install dependencies
+        run: npm install # 安装依赖项
+      - name: Build
+        run: npm run build # 构建项目
+      - name: Publish to npm
+        uses: actions/upload-artifact@v3 # 将构建后的文件上传到制品
+        with:
+          name: npm-package # 制品名称
+      - name: Publish to npm
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTH_TOKEN }}
+          npm publish # 发布 npm 包
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # 你的 npm 访问令牌
