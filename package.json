@@ -1,29 +1,13 @@
-
 {
-  "name": "@mytoken/aave-interfaces",
-  "version": "1.0.1",
-  "description": "Interfaces for Aave contracts",
+  "name": "afng",
+  "version": "1.0.0",
+  "description": "<!--\r **AFng/AFng** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
   "main": "index.js",
   "scripts": {
-    
-    
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "echo 'Build successful'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AFng/MetaGPT.git"
-  },
-  "author": "Arlia",
-  "license": "MIT",
-  "keywords": [
-    "aave",
-    "interfaces",
-    "solidity"
-  ],
-  "bugs": {
-    "url": "https://github.com/AFng/MetaGPT.git"
-  },
-  "homepage": "https://github.com/AFng/MetaGPT.git",
-  "private": false
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
