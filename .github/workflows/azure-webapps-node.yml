@@ -1,4 +1,4 @@
-name: @mytoken/aave-interfaces
+name: aave-interfaces
 
 on:
   push:
