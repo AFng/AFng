@@ -3,24 +3,26 @@ name: aave-interfaces
 on:
   push:
     branches:
-      - main # 在主分支推送代码时触发
+      - main 
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # 检查出代码
+      - uses: actions/checkout@v4 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20 # 设置 Node.js 版本为 20
+          node-version: 20 
       - name: Install dependencies
-        run: npm install # 安装依赖项
+        run: npm install
       - name: Build
-        run: npm run build # 构建项目
-      - name: Publish to npm
-        run: |
-          npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_AUTH_TOKEN }}
-          npm publish # 发布 npm 包
+        run: npm run build 
+      - name: Login to npm  # 添加这一步
+        run: npm adduser --registry https://registry.npmjs.org/ --always-auth
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # 你的 npm 访问令牌
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Publish to npm
+        run: npm publish 
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} 
